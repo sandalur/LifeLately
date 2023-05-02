@@ -5,7 +5,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 class NotificationShow {
   Future showNotification(
-      int id, String title, String body, DateTime? date) async {
+      int id, String title, String question1, String body, DateTime? date) async {
     AndroidNotificationDetails androidNotificationDetails =
         const AndroidNotificationDetails(
       'LifeLately',

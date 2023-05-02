@@ -42,6 +42,11 @@ class Todos {
   Id id;
   String name;
   String description;
+  String question1;
+  String question2;
+  String question3;
+  String question4;
+  String question5;
   DateTime? todoCompletedTime;
   bool done;
 
@@ -51,6 +56,11 @@ class Todos {
     this.id = Isar.autoIncrement,
     required this.name,
     this.description = '',
+    this.question1='',
+    this.question2='',
+    this.question3='',
+    this.question4='',
+    this.question5='',
     this.todoCompletedTime,
     this.done = false,
   });
@@ -59,6 +69,11 @@ class Todos {
       : id = json['id'],
         name = json['name'],
         description = json['description'] ?? '',
+        question1=json['question1'],
+        question2=json['question2'],
+        question3=json['question3'],
+        question4=json['question4'],
+        question5=json['question5'],
         todoCompletedTime = json['todoCompletedTime'],
         done = json['done'] ?? false;
 
@@ -66,6 +81,11 @@ class Todos {
         'id': id,
         'name': name,
         'description': description,
+        'question1': question1,
+    'question2': question2,
+    'question3': question3,
+    'question4': question4,
+    'question5': question5,
         'todoCompletedTime': todoCompletedTime,
         'done': done,
       };

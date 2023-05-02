@@ -65,7 +65,7 @@ class _AboutPageState extends State<AboutPage> {
                   padding: const EdgeInsets.all(15),
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color.fromARGB(245,199,126,1),
+                    color: Color.fromARGB(255, 245, 241, 241),
                   ),
                   child: Image.asset(
                     'assets/icons/life_lately.png',
@@ -126,7 +126,7 @@ class _AboutPageState extends State<AboutPage> {
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 30, 5, 20),
               child: Text(
-                '${'authors'.tr} Sravani,Vamsi',
+                '${'author'.tr} Dhruvi Parikh',
                 style: context.theme.primaryTextTheme.labelLarge?.copyWith(
                   fontWeight: FontWeight.w400,
                   color: Colors.white,

@@ -190,6 +190,7 @@ class _TodosListState extends State<TodosList> {
                                                       todosList.id,
                                                       todosList.name,
                                                       todosList.description,
+                                                      todosList.question1,
                                                       todosList
                                                           .todoCompletedTime,
                                                     )

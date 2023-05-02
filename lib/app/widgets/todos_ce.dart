@@ -46,6 +46,8 @@ class _TodosCeState extends State<TodosCe> {
       service.titleEdit.value = TextEditingController(text: widget.todo!.name);
       service.descEdit.value =
           TextEditingController(text: widget.todo!.description);
+      //service.q1Edit.value =
+          //TextEditingController(text: widget.todo!.question1);
       service.timeEdit.value = TextEditingController(
           text: widget.todo!.todoCompletedTime != null
               ? widget.todo!.todoCompletedTime.toString()
@@ -96,6 +98,7 @@ class _TodosCeState extends State<TodosCe> {
                             onPressed: () {
                               service.titleEdit.value.clear();
                               service.descEdit.value.clear();
+                              //service.q1Edit.value.clear();
                               service.timeEdit.value.clear();
                               textConroller.clear();
                               Get.back();
@@ -224,6 +227,36 @@ class _TodosCeState extends State<TodosCe> {
                 type: TextInputType.text,
                 icon: const Icon(Iconsax.note_text),
               ),
+              MyTextForm(
+                controller: service.q1Edit.value,
+                labelText: 'How do I feel about this? Why do I feel this way?'.tr,
+                type: TextInputType.text,
+                icon: const Icon(Iconsax.note_text),
+              ),
+              MyTextForm(
+                controller: service.q2Edit.value,
+                labelText: 'Is this explanation based on evidence or opinion?'.tr,
+                type: TextInputType.text,
+                icon: const Icon(Iconsax.note_text),
+              ),
+              MyTextForm(
+                controller: service.q3Edit.value,
+                labelText: 'Counteracting evidence? Am I making inaccurate assumptions?'.tr,
+                type: TextInputType.text,
+                icon: const Icon(Iconsax.note_text),
+              ),
+              MyTextForm(
+                controller: service.q4Edit.value,
+                labelText: 'What is something to look forward to?How does this serve me?'.tr,
+                type: TextInputType.text,
+                icon: const Icon(Iconsax.note_text),
+              ),
+              MyTextForm(
+                controller: service.q5Edit.value,
+                labelText: 'Planning: Break down the task into smaller steps'.tr,
+                type: TextInputType.text,
+                icon: const Icon(Iconsax.note_text),
+              ),
               Row(
                 children: [
                   Flexible(
@@ -283,11 +316,17 @@ class _TodosCeState extends State<TodosCe> {
                           if (formKey.currentState!.validate()) {
                             textTrim(service.titleEdit.value);
                             textTrim(service.descEdit.value);
+                            //textTrim(service.q1Edit.value);
                             widget.category == false
                                 ? service.addTodo(
                                     widget.task!,
                                     service.titleEdit.value,
                                     service.descEdit.value,
+                              service.q1Edit.value,
+                              service.q2Edit.value,
+                              service.q3Edit.value,
+                              service.q4Edit.value,
+                              service.q5Edit.value,
                                     service.timeEdit.value,
                                     widget.set,
                                   )
@@ -296,6 +335,11 @@ class _TodosCeState extends State<TodosCe> {
                                         selectedTask!,
                                         service.titleEdit.value,
                                         service.descEdit.value,
+                                        service.q1Edit.value,
+                              service.q2Edit.value,
+                              service.q3Edit.value,
+                              service.q4Edit.value,
+                              service.q5Edit.value,
                                         service.timeEdit.value,
                                         widget.set,
                                       )
@@ -304,6 +348,11 @@ class _TodosCeState extends State<TodosCe> {
                                         selectedTask!,
                                         service.titleEdit.value,
                                         service.descEdit.value,
+                              service.q1Edit.value,
+                              service.q2Edit.value,
+                              service.q3Edit.value,
+                              service.q4Edit.value,
+                              service.q5Edit.value,
                                         service.timeEdit.value,
                                         widget.set,
                                       );

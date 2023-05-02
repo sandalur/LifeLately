@@ -11,6 +11,11 @@ import 'package:todark/main.dart';
 class IsarServices {
   final titleEdit = TextEditingController().obs;
   final descEdit = TextEditingController().obs;
+  final q1Edit = TextEditingController().obs;
+  final q2Edit = TextEditingController().obs;
+  final q3Edit = TextEditingController().obs;
+  final q4Edit = TextEditingController().obs;
+  final q5Edit = TextEditingController().obs;
   final timeEdit = TextEditingController().obs;
   final toggleValue = false.obs;
   final myColor = const Color(0xFF2196F3).obs;
@@ -183,11 +188,21 @@ class IsarServices {
       Tasks task,
       TextEditingController titleEdit,
       TextEditingController descEdit,
+      TextEditingController q1Edit,
+      TextEditingController q2Edit,
+      TextEditingController q3Edit,
+      TextEditingController q4Edit,
+      TextEditingController q5Edit,
       TextEditingController timeEdit,
       Function() set) async {
     final todosCreate = Todos(
       name: titleEdit.text,
       description: descEdit.text,
+      question1: q1Edit.text,
+      question2: q2Edit.text,
+      question3: q3Edit.text,
+      question4: q4Edit.text,
+      question5: q5Edit.text,
       todoCompletedTime: DateTime.tryParse(timeEdit.text),
     )..task.value = task;
 
@@ -210,6 +225,7 @@ class IsarServices {
             todosCreate.id,
             todosCreate.name,
             todosCreate.description,
+            todosCreate.question1,
             DateTime.tryParse(timeEdit.text),
           );
         }
@@ -222,6 +238,11 @@ class IsarServices {
     }
     titleEdit.clear();
     descEdit.clear();
+    q1Edit.clear();
+    q2Edit.clear();
+    q3Edit.clear();
+    q4Edit.clear();
+    q5Edit.clear();
     timeEdit.clear();
     set();
   }
@@ -248,11 +269,21 @@ class IsarServices {
       Tasks task,
       TextEditingController titleEdit,
       TextEditingController descEdit,
+      TextEditingController q1Edit,
+      TextEditingController q2Edit,
+      TextEditingController q3Edit,
+      TextEditingController q4Edit,
+      TextEditingController q5Edit,
       TextEditingController timeEdit,
       Function() set) async {
     await isar.writeTxn(() async {
       todo.name = titleEdit.text;
       todo.description = descEdit.text;
+      todo.question1 = q1Edit.text;
+      todo.question2 = q2Edit.text;
+      todo.question3 = q3Edit.text;
+      todo.question4 = q4Edit.text;
+      todo.question5 = q5Edit.text;
       todo.todoCompletedTime = DateTime.tryParse(timeEdit.text);
       todo.task.value = task;
       await isar.todos.put(todo);
@@ -263,6 +294,7 @@ class IsarServices {
           todo.id,
           todo.name,
           todo.description,
+          todo.question1,
           DateTime.tryParse(timeEdit.text),
         );
       } else {
@@ -353,6 +385,7 @@ class IsarServices {
           element.id,
           element.name,
           element.description,
+          element.question1,
           element.todoCompletedTime,
         );
       }
