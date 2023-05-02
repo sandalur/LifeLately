@@ -1,6 +1,6 @@
 <div align="center">
 <img src="/readme/icon.png" width="150"/>
-<h2>ToDark</h2>
+<h2>LifeLately</h2>
 </div>
 
 ### Short Description:
